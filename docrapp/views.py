@@ -42,9 +42,14 @@ def getOCR(request):
         i = request.FILES['image'].file
         shutil.copyfileobj(i, new_file)
 
-        print(voodoomagic())
+        p_id = request.POST['id']
 
-    return JsonResponse({'status': 'found'})
+        # response =  voodoomagic()
+        # ocr = response['value']
+
+        ocr = 'nice'
+
+    return JsonResponse({'ocr': ocr})
 
 
 def doctor(request):
