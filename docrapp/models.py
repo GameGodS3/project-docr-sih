@@ -7,6 +7,7 @@ class Patient(models.Model):
     age = models.IntegerField()
     blood = models.CharField(max_length=8)
     place = models.CharField(max_length=70)
+    dob = models.DateField()
 
 class History(models.Model):
     pref = models.ForeignKey(Patient, on_delete=models.CASCADE)
