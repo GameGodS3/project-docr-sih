@@ -32,7 +32,7 @@ def patientSearch(request):
     if found:
         return JsonResponse({'status': 'found'})
     else:
-        return JsonResponse({'status': 'notfound'})
+        return JsonResponse({'error' : 'user not found'})
 
 @csrf_exempt
 def getOCR(request):
