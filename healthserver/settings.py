@@ -36,10 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles', 
-    'docapp.apps.DocappConfig',
-    'repapp.apps.RepappConfig',
-    'pharmapp.apps.PharmappConfig',
+    'django.contrib.staticfiles',
+    'docrapp.apps.DocrappConfig',
 ]
 
 MIDDLEWARE = [
