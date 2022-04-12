@@ -37,17 +37,22 @@ def patientSearch(request):
 @csrf_exempt
 def getOCR(request):
     if request.method == 'POST':
-
+            
+        print(request.POST)
         new_file = open('tmp/image.jpg', 'wb')
         i = request.FILES['image'].file
         shutil.copyfileobj(i, new_file)
 
         p_id = request.POST['id']
 
+        source = request.POST['source']
+        if source == "doctor":
+            ocr = ["Paracetamol",  "100mg",  "1-0-1", "2 weeks"] 
+        elif source == "reception":
+            ocr = ["John Doe", 30, "AB+ve", "1992-12-10"]
+
         # response =  voodoomagic()
         # ocr = response['value']
-
-        ocr = 'nice'
 
     return JsonResponse({'ocr': ocr})
 
