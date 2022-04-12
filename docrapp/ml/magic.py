@@ -9,6 +9,7 @@ def voodoomagic():
 
     command = f'''
     curl --request POST \
+        -s \
         --url https://pen-to-print-handwriting-ocr.p.rapidapi.com/recognize/ \
         --header 'X-RapidAPI-Host: pen-to-print-handwriting-ocr.p.rapidapi.com' \
         --header 'X-RapidAPI-Key: 8cb6a74ffcmsh9ff81e0b74a2c4ep1aaee4jsne3817830bbf0' \
@@ -17,8 +18,7 @@ def voodoomagic():
         --form Session=string
     '''
 
-    os.system(command)
-
-    # with Popen(command, stdout=PIPE,  shell=True) as process:
-        # output = process.communicate()[0].decode("utf-8")
-        # return output
+    with Popen(command, stdout=PIPE,  shell=True) as process:
+        output = process.communicate()[0].decode("utf-8")
+        output.replace('\n', '\\n')
+        return json.loads(output)
